@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'/>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'/>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+    <script src="source.js" defer></script>
+    <link rel='stylesheet' href='css/style.css'/>
+    <title>Sign-Up</title>
+</head>
+<body>
+    <div id="pageContainer" class="container">
+        <div id="sidebarContainer" class="container">
+            <div>
+                <img src="assets/logo.png"></img>
+                <span>Odin</span>
+            </div>
+            <div>
+                Photo by <a href='https://unsplash.com/photos/25xggax4bSA'>Halie West</a> on <a href='https://unsplash.com/'>Unsplash</a>
+            </div>
+        </div>
+        <div id="contentContainer" class="container">
+            <div id="textContainer" class="container">
+                <div class="strong large">This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. Sign up <em>now</em> to get started.</div>
+                <div class="strong large">You <em>know</em> you want to.</div>
+            </div>
+            <div id="formContainer" class="container">
+                <div class="strong large">Let's Do This!</div>
+                <form id="form">
+                    <div class="inputDiv">
+                        <label for="first"><abbr title="required" aria-label="required">*</abbr>First Name</label>
+                        <input type='text' name='first' id='first'
+                        placeholder="First"
+                        required/>
+                    </div>
+                    <div class="inputDiv">
+                        <label for="last"><abbr title="required" aria-label="required">*</abbr>Last Name</label>
+                        <input type='text' name='last' id='last' 
+                        placeholder="Last"
+                        required/>
+                    </div>
+                    <div class="inputDiv">
+                        <label for="email"><abbr title="required" aria-label="required">*</abbr>Email</label>
+                        <input type='email' name='email' id='email' 
+                        placeholder="me@example.com"
+                        required/>
+                    </div>
+                    <div class="inputDiv">
+                        <label for="phone">Phone Number</label>
+                        <input type='tel' name='phone'
+                        placeholder="555-5555"
+                        id='phone'/>
+                    </div>
+                    <div class="inputDiv">
+                        <label for="pass"><abbr title="required" aria-label="required">*</abbr>Password</label>
+                        <input type='password' name='pass' id='pass' 
+                        placeholder="choose a secure password"
+                        required/>
+                    </div>
+                    <div class="inputDiv">
+                        <label for="first"><abbr title="required" aria-label="required">*</abbr>Confirm Password</label>
+                        <input type='password' id='pass2' 
+                        placeholder="choose a secure password"
+                        required/>
+                    </div>
+                </form>
+            </div>
+            <div id="submitContainer" class="container">
+                <button id="submitBtn" class="strong large" type="submit" form="accountForm">Create Account</button>
+                <div id="login">Already have an account? <a href="/login" class="strong">Log in</a></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

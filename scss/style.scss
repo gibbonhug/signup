@@ -1,0 +1,189 @@
+// reset: https://www.digitalocean.com/community/tutorials/css-minimal-css-reset
+ 
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+*:before, *:after {
+    box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+// content
+
+$image: url(../assets/image.jpg);
+$btn: #596D48;
+$beige: rgb(247, 246, 232);
+$input: #E5E7EB;
+$inputfocus: #91aad9;
+$inputerror: red;
+@font-face {
+    font-family: 'Norse-Bold';
+    src: url(../assets/Norse-Bold.otf);
+}
+
+#pageContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    height: 100vh;
+    #sidebarContainer {
+        background-image: $image; // leaves
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        div {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+        div:first-child { // image+'odin'
+            background-color: rgba(0, 0, 0, 0.5);
+            margin-top: 10rem; // push down page
+            padding: 1rem;
+            font-family: 'Norse-Bold', sans-serif;
+            font-size: 5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem; // between img and text
+            img { // odin logo
+                height: 1.4em;
+                flex-shrink: 1;
+            }
+        }
+        div:last-child {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            letter-spacing: 0.025rem;
+            a {
+                color: white;
+            }
+        }
+    }
+    #contentContainer {
+        .strong {
+            font-weight: 600;
+        }
+        .large {
+            font-size: large;
+        }
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        color: black;
+        background-color: $beige;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        overflow: scroll;
+        .container {
+            padding-left: 3rem; // 'indent'
+            padding-right: 10rem;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+            > div {
+                margin: 1.25rem 0; // space between sep paras
+            }
+        }
+        .container:first-child {
+            padding-top: 5rem; // squashed head
+        }
+        .container:nth-child(even) { // alternate colors
+            background-color: white;
+        }
+        .container:nth-child(odd) { // alternate colors
+            background-color: $beige;
+        }
+
+        #formContainer {
+            #form {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); // switch to 1 col on thin page width; 15rem = width of each input
+                gap: 1rem; // space around dif inputs
+                .inputDiv {
+                    display: flex;
+                    flex-direction: column; // label above textbox
+                    gap: 0.1rem;
+                    font-weight: 600;
+                    font-size: smaller;
+                    color: rgb(56, 56, 56);
+                    letter-spacing: 0.025rem;
+                    label {
+                        display: flex;
+                        gap: 0.1rem; // gap bt required and title
+                    }
+                    input {
+                        width: 15rem;
+                        height: 2rem;
+                        border-radius: 0.5rem;
+                        text-indent: 0.5rem; // text doestnt start at start of input
+                        background-color: white;
+                        color: black;
+                        border-color: $input;
+                        border-width: 0.125rem;
+                    }
+                    input:focus {
+                        border-color: $inputfocus;
+                        box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.075);
+                    }
+                    input:not(:placeholder-shown):invalid {
+                        // do not show error until 1st input
+                        border-color: $inputerror;
+                    }
+                    input.invalidPass {
+                        // for javascript func
+                        border-color: $inputerror;
+                    }
+                    ::placeholder {
+                        color: rgb(74, 74, 74);
+                        font-weight: 400;
+                    }
+                }            
+            }
+        }
+    }
+    #submitContainer {
+        button { // submit button
+            background-color: $btn;
+            border-radius: 0.5rem;
+            padding: 1rem 2.5rem;
+            box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.075);
+            color: white;
+        }
+        button:active {
+            background-color: darken($btn, 10%);
+            box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
+        }
+        a {
+            text-decoration: none;
+            color: $btn;
+        }
+        a:hover {
+            color: darken($btn, 10%);
+            text-decoration: underline;
+        }
+    }
+}
